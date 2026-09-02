@@ -1,16 +1,107 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.geometry.Insets?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.layout.VBox?>
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
 
+feature/rommel
 <?import javafx.scene.control.Button?>
 <VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
       fx:controller="controllers.PersonController">
-    <padding>
-        <Insets bottom="20.0" left="20.0" right="20.0" top="20.0"/>
-    </padding>
 
-    <Label fx:id="welcomeText"/>
-    <Button text="Hello!" onAction="#onHelloButtonClick"/>
+<VBox spacing="10" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.prueba1.ColaboradorController">
+ main
+    <padding>
+        <Insets bottom="10" left="10" right="10" top="10" />
+    </padding>
+    <Label style="-fx-font-size: 18px; -fx-font-weight: bold;" text="REGISTRO DE COLABORADORES" textFill="WHITE" />
+    <GridPane hgap="10" vgap="10">
+        <Label style="-fx-background-color: #ffffff;" text="Nombres:" GridPane.columnIndex="0" GridPane.rowIndex="0" />
+        <TextField fx:id="txtNames" GridPane.columnIndex="1" GridPane.rowIndex="0" />
+
+        <Label style="-fx-background-color: #ffffff;" text="Apellidos:" GridPane.columnIndex="0" GridPane.rowIndex="1" />
+        <TextField fx:id="txtLastNames" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+
+        <Label style="-fx-background-color: #ffffff;" text="Usuario:" GridPane.columnIndex="0" GridPane.rowIndex="2" />
+        <TextField fx:id="txtUser" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+
+        <Label style="-fx-background-color: #ffffff;" text="Contraseña:" GridPane.columnIndex="0" GridPane.rowIndex="3" />
+        <PasswordField fx:id="txtPassword" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <columnConstraints>
+         <ColumnConstraints />
+         <ColumnConstraints />
+      </columnConstraints>
+      <rowConstraints>
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+         <RowConstraints />
+      </rowConstraints>
+    </GridPane>
+    <HBox spacing="20">
+        <VBox spacing="10">
+            <Label style="-fx-background-color: #ffffff;" text="Cargo:" />
+            <ComboBox fx:id="cmbCharge" prefWidth="200" />
+
+            <Label style="-fx-background-color: #ffffff;" text="Área:" />
+            <ListView fx:id="lstArea" prefHeight="80" prefWidth="200" />
+
+            <Label style="-fx-background-color: #ffffff;" text="Fecha:" />
+            <DatePicker fx:id="dpDate" prefWidth="200" />
+        </VBox>
+
+        <VBox spacing="10">
+            <Label style="-fx-background-color: #ffffff;" text="Tipo Contrato:" />
+            <RadioButton fx:id="rbIndefinido" style="-fx-background-color: #ffffff;" text="Indefinido" />
+            <RadioButton fx:id="rbFijo" style="-fx-background-color: #ffffff;" text="Fijo" />
+            <RadioButton fx:id="rbTemporal" style="-fx-background-color: #ffffff;" text="Temporal" />
+
+            <Label style="-fx-background-color: #ffffff;" text="Beneficios:" />
+            <CheckBox fx:id="chkSalud" style="-fx-background-color: #ffffff;" text="Salud" />
+            <CheckBox fx:id="chkEducacion" style="-fx-background-color: #ffffff;" text="Educación" />
+            <CheckBox fx:id="chkAlimentacion" style="-fx-background-color: #ffffff;" text="Alimentación" />
+            <CheckBox fx:id="chkTransporte" style="-fx-background-color: #ffffff;" text="Transporte" />
+
+            <ImageView fx:id="imgInstitucional" fitHeight="60" fitWidth="100" />
+            <Button fx:id="btnLoadImage" onAction="#cargarImagen" text="Cargar Imagen" />
+        </VBox>
+    </HBox>
+    <HBox spacing="10">
+        <Button fx:id="btnRegister" onAction="#registrar" text="Registrar" />
+        <Button fx:id="btnClean" onAction="#limpiar" text="Limpiar" />
+    </HBox>
+    <TableView fx:id="tablaColaboradores" prefHeight="200">
+        <columns>
+            <TableColumn fx:id="colName" prefWidth="120" text="Nombre">
+                <cellValueFactory>
+                    <PropertyValueFactory property="nombreCompleto" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colCharge" prefWidth="100" text="Cargo">
+                <cellValueFactory>
+                    <PropertyValueFactory property="cargo" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colArea" prefWidth="100" text="Área">
+                <cellValueFactory>
+                    <PropertyValueFactory property="area" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colDate" prefWidth="100" text="Fecha">
+                <cellValueFactory>
+                    <PropertyValueFactory property="fechaContratacion" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colContract" prefWidth="100" text="Contrato">
+                <cellValueFactory>
+                    <PropertyValueFactory property="tipoContrato" />
+                </cellValueFactory>
+            </TableColumn>
+            <TableColumn fx:id="colBenefits" prefWidth="150" text="Beneficios">
+                <cellValueFactory>
+                    <PropertyValueFactory property="beneficios" />
+                </cellValueFactory>
+            </TableColumn>
+        </columns>
+    </TableView>
 </VBox>

@@ -4,7 +4,13 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
+feature/rommel
+<?import javafx.scene.control.Button?>
+<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml"
+      fx:controller="controllers.PersonController">
+
 <VBox spacing="10" style="-fx-background-color: #2c3e50;" xmlns="http://javafx.com/javafx/17.0.12" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.prueba1.ColaboradorController">
+ main
     <padding>
         <Insets bottom="10" left="10" right="10" top="10" />
     </padding>
